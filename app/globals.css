@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "@fontsource/unbounded/500.css";
+@import "@fontsource/unbounded/800.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/800.css";
+
+@theme {
+  --color-bg: #08080a;
+  --color-card: #131318;
+  --color-line: #24242c;
+  --color-fg: #f4f4f2;
+  --color-muted: #9b9ca6;
+  --color-acid: #d4ff3a;
+  --color-hot: #ff3b30;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", "Manrope", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-bg); color: var(--color-fg); -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .wrap { max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 14px; padding: 1rem 1.6rem; font-weight: 800; transition: transform .2s, box-shadow .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-acid { background: var(--color-acid); color: #08080a; box-shadow: 0 10px 40px -10px rgba(212,255,58,.6); }
+  .btn-acid:hover { box-shadow: 0 14px 50px -8px rgba(212,255,58,.85); }
+  .btn-white { background: #fff; color: #08080a; }
+  .btn-white:hover { background: #e9e9e9; }
+  .tag { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(212,255,58,.4); background: rgba(212,255,58,.08); color: var(--color-acid); border-radius: 999px; padding: .4rem .9rem; font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -.02em; }
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 28s linear infinite; }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+.kenburns { animation: kenburns 9s ease-out both; }
+@keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 0 0 rgba(212,255,58,.7); } 50% { box-shadow: 0 0 0 8px rgba(212,255,58,0); } }
+.pulse-dot { animation: pulse-dot 2s infinite; }
